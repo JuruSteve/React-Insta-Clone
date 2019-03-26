@@ -4,11 +4,12 @@ import "./Comment.css";
 
 const Comment = props => {
   return (
-    <div className="comment-container">
-      <div className="username">{props.comment.username}</div>
-      <div className="single-comment">{props.comment.text}</div>
-      <div className="comment-input">
-        <input type="text" placeholder="Enter a comment" />
+    <div className="comments">
+      <div className="comment-text">
+        <p>
+          <span className="username">{props.comment.username}</span>
+          {props.comment.text}
+        </p>
       </div>
     </div>
   );

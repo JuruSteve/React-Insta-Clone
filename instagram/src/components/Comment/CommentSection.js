@@ -5,7 +5,7 @@ import "./Comment.css";
 
 const CommentSection = props => {
   return (
-    <div className="comments">
+    <div className="comment-container">
       {props.postComments.map((el, i) => {
         return <Comment key={i} comment={el} />;
       })}

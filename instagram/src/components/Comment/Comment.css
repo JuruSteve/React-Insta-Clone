@@ -1,0 +1,21 @@
+.comment-container {
+  padding: 10px;
+}
+
+.comment-text {
+  display: flex;
+}
+.comment-text,
+span {
+  padding: 5px 10px 5px 0px;
+  font-weight: 600;
+}
+.comment-text,
+p {
+  text-align: left;
+  font-weight: normal;
+  margin: 0;
+}
+.comments {
+  justify-content: baseline;
+}

@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+.posts-section {
+  height: 800px;
+  overflow-y: scroll;
+}

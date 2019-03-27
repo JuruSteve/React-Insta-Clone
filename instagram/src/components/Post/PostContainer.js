@@ -2,6 +2,7 @@ import React from "react";
 import CommentSection from "../Comment/CommentSection";
 import PropTypes from "prop-types";
 import "./Post.css";
+import LikesCount from "../Likes/LikesCount";
 
 const PostContainer = props => {
   return (
@@ -17,7 +18,7 @@ const PostContainer = props => {
       <div className="picture">
         <img src={props.post.imageUrl} alt="" />
       </div>
-
+      <LikesCount likes={props.post.likes} />
       <CommentSection postComments={props.post.comments} />
       <div className="comment-input">
         <input type="text" placeholder="Add a comment..." />

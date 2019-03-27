@@ -1,0 +1,24 @@
+.likes-section {
+  padding: 0 10px;
+}
+.likes-count {
+  text-align: left;
+}
+.likes-count > h5 {
+  margin: 0;
+}
+
+.like-buttons {
+  display: flex;
+}
+.likes,
+.comment-chat {
+  padding: 10px;
+}
+.likes {
+  padding-left: 0;
+}
+
+.comment-chat > svg {
+  background: "white";
+}

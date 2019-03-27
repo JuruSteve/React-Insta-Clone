@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 import "./Comment.css";
 
 const CommentInput = props => {
-  console.log(props);
+  // console.log(props.postID);
   return (
     <form
       onSubmit={e => {
-        props.addNewComment(e);
+        // e.preventDefault();
+        // props.comments.forEach((el, i) => {
+        //   console.log("onSubmit", el, i);
+        // });
+        console.log(props.text, props.postID);
+        props.addNewComment(e, props.text, props.postID);
       }}
     >
       <input

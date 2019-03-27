@@ -3,7 +3,7 @@ import "./likes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LikesCount = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="likes-section">
       <div className="like-buttons">

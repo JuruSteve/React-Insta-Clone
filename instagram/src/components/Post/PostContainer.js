@@ -2,7 +2,6 @@ import React from "react";
 import CommentSection from "../Comment/CommentSection";
 import PropTypes from "prop-types";
 import "./Post.css";
-import LikesCount from "../Likes/LikesCount";
 
 const PostContainer = props => {
   return (
@@ -12,7 +11,7 @@ const PostContainer = props => {
           <img src={props.post.thumbnailUrl} alt="" />
         </div>
         <div className="username">
-          <h5>{props.post.username}</h5>
+          <h5 className="username-text">{props.post.username}</h5>
         </div>
       </div>
       <div className="picture">
@@ -23,6 +22,7 @@ const PostContainer = props => {
         likes={props.post.likes}
         updateLikes={props.updateLikes}
         postID={props.postID}
+        post={props.post}
       />
     </div>
   );

@@ -28,7 +28,12 @@ class App extends Component {
     let posts = this.state.data;
     posts = posts.map((post, i) => {
       if (i === id) {
-        post.likes += 1;
+        post.liked = !post.liked;
+        if (post.liked) {
+          post.likes += 1;
+        } else {
+          post.likes -= 1;
+        }
         return post;
       } else {
         return post;
@@ -41,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar posts={this.state.data} />
         <div className="posts-section">
           {this.state.data.map((el, i) => {
             return (

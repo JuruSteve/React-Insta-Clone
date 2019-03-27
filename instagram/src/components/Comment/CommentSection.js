@@ -17,34 +17,28 @@ class CommentSection extends Component {
   handleChange = e => {
     this.setState({ text: e.target.value });
   };
-  addNewComment = (e, index) => {
+  addNewComment = (e, commentText, index) => {
     e.preventDefault();
-    const comment = { username: "anon", text: e.target.value };
-    let oldComment = this.state.comments;
-    oldComment = oldComment.map((com, i) => {
-      if (index === i) {
-        console.log(com);
-        // oldComment.push(comment)
-      }
-      return com;
-    });
-    console.log(e, index);
+    const comment = { username: "anon", text: commentText };
+    this.setState({ comments: [...this.state.comments, comment], text: "" });
   };
-  // newLike = ()=> {
-  //   this.state.commets.likes = this.setState({
-  //     comments: comments.likes{
 
-  //     }
-  //   })
-  //   this.setState(()=>{
-  //     return {
-  //       comments: {
-  //         ...this.state.comments,
-  //         likes: this.setState({})
-  //       }
-  //     }
-  //   })
-  // }
+  componentDidMount() {
+    if (localStorage.getItem("comments") === null) {
+      const comments = [];
+      comments.push(this.state.comments);
+      localStorage.setItem("comments", JSON.stringify(comments[0]));
+    } else {
+      const savedComments = JSON.parse(localStorage.getItem("comments"));
+      this.setState({ comments: savedComments, text: "" });
+    }
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.comments !== nextState.commemts) {
+      localStorage.setItem("comments", JSON.stringify(nextState.comments));
+    }
+    return true;
+  }
   render() {
     let commentIndex;
     return (
@@ -56,7 +50,7 @@ class CommentSection extends Component {
         />
         {this.state.comments.map((el, i) => {
           commentIndex = i;
-          console.log(commentIndex);
+          // console.log(commentIndex);
           return <Comment key={i} comment={el} />;
         })}
         <div className="comment-input">
@@ -65,6 +59,7 @@ class CommentSection extends Component {
             commentIndex={commentIndex}
             handleChange={this.handleChange}
             addNewComment={this.addNewComment}
+            postID={this.props.postID}
           />
         </div>
       </div>

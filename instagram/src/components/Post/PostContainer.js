@@ -18,11 +18,12 @@ const PostContainer = props => {
       <div className="picture">
         <img src={props.post.imageUrl} alt="" />
       </div>
-      <LikesCount likes={props.post.likes} />
-      <CommentSection postComments={props.post.comments} />
-      <div className="comment-input">
-        <input type="text" placeholder="Add a comment..." />
-      </div>
+      <CommentSection
+        postComments={props.post.comments}
+        likes={props.post.likes}
+        updateLikes={props.updateLikes}
+        postID={props.postID}
+      />
     </div>
   );
 };

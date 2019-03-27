@@ -19,14 +19,3 @@
   width: 500px;
   height: auto;
 }
-.comment-input {
-  padding: 10px;
-}
-.comment-input > input {
-  width: 95%;
-  font-size: 1rem;
-  margin: 0 auto;
-  padding: 10px;
-  border: 0;
-  border-top: 0.5px solid #80808040;
-}

@@ -19,3 +19,15 @@ p {
 .comments {
   justify-content: baseline;
 }
+
+.comment-input {
+  padding: 10px;
+}
+.comment-input > form > input {
+  width: 95%;
+  font-size: 1rem;
+  margin: 0 auto;
+  padding: 10px;
+  border: 0;
+  border-top: 0.5px solid #80808040;
+}

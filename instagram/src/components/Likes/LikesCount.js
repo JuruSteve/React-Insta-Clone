@@ -3,11 +3,16 @@ import "./likes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LikesCount = props => {
+  console.log(props);
   return (
     <div className="likes-section">
       <div className="like-buttons">
         <div className="likes">
-          <FontAwesomeIcon icon="heart" prefix="far" />
+          <FontAwesomeIcon
+            icon="heart"
+            prefix="far"
+            onClick={() => props.updateLikes(props.postID)}
+          />
         </div>
         <div className="comment-chat">
           <FontAwesomeIcon icon="comment" prefix="fas" />

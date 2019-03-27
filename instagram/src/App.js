@@ -24,13 +24,34 @@ class App extends Component {
     this.setState({ data: dummyData });
   }
 
+  updateLikes = id => {
+    let posts = this.state.data;
+    posts = posts.map((post, i) => {
+      if (i === id) {
+        post.likes += 1;
+        return post;
+      } else {
+        return post;
+      }
+    });
+
+    this.setState({ data: posts });
+  };
+
   render() {
     return (
       <div className="App">
         <SearchBar />
         <div className="posts-section">
           {this.state.data.map((el, i) => {
-            return <PostContainer key={i} post={el} />;
+            return (
+              <PostContainer
+                key={i}
+                post={el}
+                postID={i}
+                updateLikes={this.updateLikes}
+              />
+            );
           })}
         </div>
       </div>

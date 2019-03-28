@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const withAuthenticate = PostsPage => LoginPage =>
   class extends React.Component {
@@ -26,7 +25,5 @@ const withAuthenticate = PostsPage => LoginPage =>
       );
     }
   };
-
-withAuthenticate.propTypes = {};
 
 export default withAuthenticate;

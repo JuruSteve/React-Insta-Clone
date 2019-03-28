@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PropTypes from "prop-types";
 import "./Search.css";
 
 export default class SearchBar extends Component {
@@ -30,28 +30,65 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <div className="search-container">
-        <div className="search">
-          <div className="logo">
+      <SearchContainer>
+        <Search>
+          <Logo>
             <FontAwesomeIcon icon={["fab", "instagram"]} size="3x" />
-            <div className="divider">
+            <Divider>
               <span>Instagram</span>
-            </div>
-          </div>
+            </Divider>
+          </Logo>
 
-          <div className="search-bar">
+          <SearchBarStyles>
             <input
               type="text"
               value={this.state.searchInput}
               onChange={this.handleChange}
               placeholder="search"
             />
-          </div>
+          </SearchBarStyles>
           <div className="profile">
             <h4>profile</h4>
           </div>
-        </div>
-      </div>
+        </Search>
+      </SearchContainer>
     );
   }
 }
+
+const SearchContainer = styled.div`
+  width: 500px;
+  margin: 0 auto;
+`;
+
+const Search = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SearchBarStyles = styled.div`
+  input {
+    height: 30px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+`;
+
+const Logo = styled.div`
+  display: flex;
+`;
+
+const Divider = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 10px 10px 10px;
+  border-left: 1px solid gray;
+  height: 40px;
+  span {
+    margin-left: 15px;
+    font-size: 1.5rem;
+    font-family: cursive;
+  }
+`;

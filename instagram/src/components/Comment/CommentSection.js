@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
 import PropTypes from "prop-types";
-import "./Comment.css";
+import styled from "styled-components";
 import CommentInput from "./CommentInput";
 import LikesCount from "../Likes/LikesCount";
 
@@ -46,7 +46,7 @@ class CommentSection extends Component {
   render() {
     let commentIndex;
     return (
-      <div className="comment-container">
+      <CommentContainer>
         <LikesCount
           updateLikes={this.props.updateLikes}
           likes={this.props.likes}
@@ -57,7 +57,7 @@ class CommentSection extends Component {
           // console.log(commentIndex);
           return <Comment key={i} comment={el} />;
         })}
-        <div className="comment-input">
+        <CommentInputStyles>
           <CommentInput
             text={this.state.text}
             commentIndex={commentIndex}
@@ -65,11 +65,20 @@ class CommentSection extends Component {
             addNewComment={this.addNewComment}
             postID={this.props.postID}
           />
-        </div>
-      </div>
+        </CommentInputStyles>
+      </CommentContainer>
     );
   }
 }
+
+const CommentContainer = styled.div`
+  padding: 10px;
+`;
+
+const CommentInputStyles = styled.div`
+  padding: 10px;
+`;
+
 CommentSection.propTypes = {
   postComments: PropTypes.array
 };

@@ -1,19 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Comment.css";
+import styled from "styled-components";
 
 const Comment = props => {
   return (
-    <div className="comments">
-      <div className="comment-text">
+    <Comments>
+      <CommentsText>
         <p>
           <span className="username">{props.comment.username}</span>
           {props.comment.text}
         </p>
-      </div>
-    </div>
+      </CommentsText>
+    </Comments>
   );
 };
+
+const Comments = styled.div`
+  justify-content: baseline;
+`;
+
+const CommentsText = styled.div`
+  display: flex;
+  span {
+    padding: 5px 10px 5px 0px;
+    font-weight: 600;
+  }
+  p {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+  }
+`;
 
 export default Comment;
 

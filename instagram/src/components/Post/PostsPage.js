@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchBar from "../Search/SearchBar";
 import PostContainer from "./PostContainer";
+import styled from "styled-components";
 
 class PostsPage extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class PostsPage extends Component {
   }
   render() {
     return (
-      <div className="app">
+      <App>
         <SearchBar />
         <div className="posts-section">
           {this.props.data.data.map((el, i) => {
@@ -22,9 +23,13 @@ class PostsPage extends Component {
             );
           })}
         </div>
-      </div>
+      </App>
     );
   }
 }
+const App = styled.div`
+  height: 850px;
+  overflow-y: scroll;
+`;
 
 export default PostsPage;

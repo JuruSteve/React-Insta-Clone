@@ -1,22 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 import CommentSection from "../Comment/CommentSection";
 import PropTypes from "prop-types";
-import "./Post.css";
 
 const PostContainer = props => {
   return (
-    <div className="post-container">
-      <div className="header">
-        <div className="thumbnail">
+    <PostContainerStyles>
+      <Header>
+        <Thumbnail>
           <img src={props.post.thumbnailUrl} alt="" />
-        </div>
+        </Thumbnail>
         <div className="username">
           <h5 className="username-text">{props.post.username}</h5>
         </div>
-      </div>
-      <div className="picture">
+      </Header>
+      <Picture>
         <img src={props.post.imageUrl} alt="" />
-      </div>
+      </Picture>
       <CommentSection
         postComments={props.post.comments}
         likes={props.post.likes}
@@ -24,12 +24,38 @@ const PostContainer = props => {
         postID={props.postID}
         post={props.post}
       />
-    </div>
+    </PostContainerStyles>
   );
 };
 
 PostContainer.propTypes = {
   post: PropTypes.object
 };
+
+const Header = styled.div`
+  display: flex;
+  padding: 5px;
+  justify-content: flex-start;
+`;
+
+const PostContainerStyles = styled.div`
+  width: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 0.8px 0px grey;
+`;
+const Thumbnail = styled.div`
+  img {
+    width: 50px;
+    height: auto;
+    border-radius: 50px;
+    padding: 10px;
+  }
+`;
+const Picture = styled.div`
+  img {
+    width: 500px;
+    height: auto;
+  }
+`;
 
 export default PostContainer;

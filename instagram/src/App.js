@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import dummyData from "./dummy-data";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -57,7 +56,4 @@ class App extends Component {
   }
 }
 
-// App.defaultProps = {
-//   data: dummyData
-// };
 export default App;

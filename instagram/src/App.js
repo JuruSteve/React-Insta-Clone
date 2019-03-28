@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import dummyData from "./dummy-data";
-import PostContainer from "./components/Post/PostContainer";
-import SearchBar from "./components/Search/SearchBar";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -11,13 +9,19 @@ import {
   faSearch
 } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import PostsPage from "./components/Post/PostsPage";
+import withAuthenticate from "./components/Authentication/withAuthenticate";
+import LoginPage from "./components/Login/LoginPage";
 library.add(fab, faHeart, faComment, faSearch);
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      loggedIn: false
     };
   }
   componentDidMount() {
@@ -45,21 +49,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <SearchBar posts={this.state.data} />
-        <div className="posts-section">
-          {this.state.data.map((el, i) => {
-            return (
-              <PostContainer
-                key={i}
-                post={el}
-                postID={i}
-                updateLikes={this.updateLikes}
-              />
-            );
-          })}
-        </div>
-      </div>
+      <ComponentFromWithAuthenticate
+        data={this.state}
+        updateLikes={this.updateLikes}
+      />
     );
   }
 }

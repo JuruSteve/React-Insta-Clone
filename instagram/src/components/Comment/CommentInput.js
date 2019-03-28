@@ -7,11 +7,6 @@ const CommentInput = props => {
   return (
     <form
       onSubmit={e => {
-        // e.preventDefault();
-        // props.comments.forEach((el, i) => {
-        //   console.log("onSubmit", el, i);
-        // });
-        console.log(props.text, props.postID);
         props.addNewComment(e, props.text, props.postID);
       }}
     >

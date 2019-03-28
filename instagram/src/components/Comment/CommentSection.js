@@ -20,6 +20,10 @@ class CommentSection extends Component {
   addNewComment = (e, commentText, index) => {
     e.preventDefault();
     const comment = { username: "anon", text: commentText };
+    if (localStorage.getItem("username") !== null) {
+      comment.username = JSON.parse(localStorage.getItem("username"));
+      console.log(comment.username);
+    }
     this.setState({ comments: [...this.state.comments, comment], text: "" });
   };
 

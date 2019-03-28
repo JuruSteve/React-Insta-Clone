@@ -15,15 +15,14 @@ export default class LoginPage extends Component {
   };
 
   login = e => {
-    // e.preventDefault();
     console.log(this.state.username);
     localStorage.setItem("username", JSON.stringify(this.state.username));
     window.location.reload();
   };
   render() {
     return (
-      <div>
-        <h1>Login Page</h1>
+      <div className="login-page">
+        <h1>Instagram</h1>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -33,24 +32,19 @@ export default class LoginPage extends Component {
           <input
             type="text"
             name="username"
+            placeholder="Username"
             onChange={this.handleChange("username")}
             value={this.state.username}
           />
           <input
-            type="text"
+            type="password"
+            autoComplete="current-password"
             name="password"
+            placeholder="Password"
             onChange={this.handleChange("password")}
             value={this.state.password}
           />
-          <button
-            // onSubmit={e => {
-            //   e.preventDefault();
-            //   this.login(e);
-            // }}
-            type="submit"
-          >
-            LOGIN
-          </button>
+          <button type="submit">LOGIN</button>
         </form>
       </div>
     );
